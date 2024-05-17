@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'apis.api',
     'apis.campaigns',
     'apis.offers',
+    'apis.click',
 
 ]
 
