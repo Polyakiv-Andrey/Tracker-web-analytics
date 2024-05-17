@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_filters',
     'apis.api',
     'apis.campaigns',
+    'apis.offers',
 
 ]
 
