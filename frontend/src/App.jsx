@@ -14,6 +14,11 @@ export const App = () => {
         objectType="Offers"
         orderingType={["title", "url", "campaigns"]}
       />
+      <DashboardList
+        filtersObj={{ user: '', action: '', date: '', interest_level: '' }}
+        objectType="Leads"
+        orderingType={["user", "action", "date", "interest_level"]}
+      />
     </section>
   );
 };
