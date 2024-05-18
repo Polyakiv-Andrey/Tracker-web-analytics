@@ -1,0 +1,71 @@
+.Dashboard {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    background-color:honeydew;
+  }
+
+  &__title {
+    text-align: center;
+    background-color: aquamarine;
+    margin: 0;
+    padding: 10px;
+  }
+
+  &__content {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  &__sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: bisque;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 82.5px);
+
+  }
+  &__filter {
+    text-align: center;
+    font-style: italic;
+    font-size: large;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    &__arrow {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &__left {
+        margin-right: 10px;
+      }
+
+      &__right {
+        margin-left: 10px;
+      }
+    }
+  }
+}

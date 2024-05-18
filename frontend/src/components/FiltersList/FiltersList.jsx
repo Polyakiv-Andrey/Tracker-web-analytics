@@ -1,4 +1,5 @@
 import React from 'react';
+import './FiltersList.scss';
 
 export const FilterList = ({ filtersObj, handleFilterChange }) => {
   const renderFilters = () => {
@@ -8,6 +9,8 @@ export const FilterList = ({ filtersObj, handleFilterChange }) => {
         type = "datetime-local";
       }
       return (
+        <div className='Dashboard__filters__element'>
+        <span className='Dashboard__filters__title'>{ key.charAt(0).toUpperCase() + key.slice(1) }: </span>
         <input
           key={key}
           className="Dashboard__filter__input"
@@ -16,7 +19,8 @@ export const FilterList = ({ filtersObj, handleFilterChange }) => {
           placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
           value={filtersObj[key]}
           onChange={handleFilterChange}
-        />
+          />
+        </div>
       );
     });
   };

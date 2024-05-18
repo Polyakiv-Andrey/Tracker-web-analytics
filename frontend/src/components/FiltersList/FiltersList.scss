@@ -1,0 +1,25 @@
+.Dashboard {
+    &__filter, &__ordering {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+    &__ordering {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  &__filter__input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  &__filter_title {
+    text-align: center;
+    font-style: italic;
+    font-size: large;
+  }
+}

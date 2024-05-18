@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getListObjectsFromServer } from '../../api/getListObjectsFromServer';
-
+import './DashbordTemplate.scss';
 import { FilterList } from '../FiltersList/FiltersList';
 
 import { CampaignDashboardCard } from '../DashboardCards/CampaignDashboardCard/CampaignDashboardCard';
@@ -9,13 +9,13 @@ import { LeadDashboardCard } from '../DashboardCards/LeadDashboardCard/LeadDashb
 import { OfferDashboardCard } from '../DashboardCards/OfferDashboardCard/OfferDashboardCard';
 
 
-export const DashboardList = ({ filtersObj, objectType, orderingType } ) => {
+export const DashboardList = ({ filtersObj, objectType, orderingType }) => {
   const [listObjects, setListObjects] = useState([]);
   const [filters, setFilters] = useState(filtersObj);
   const [ordering, setOrdering] = useState(orderingType[0]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
-  const itemsPerPage = 9
+  const itemsPerPage = 6
 
   const fetchListObjects = async (objectType, query, limit, offset, ordering) => {
     try {
@@ -34,7 +34,7 @@ export const DashboardList = ({ filtersObj, objectType, orderingType } ) => {
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilters((prevFilters) => ({ ...prevFilters, [name]: value }));
-    setCurrentPage(0); 
+    setCurrentPage(0);
   };
 
   const handleOrderingChange = (e) => {
@@ -69,39 +69,40 @@ export const DashboardList = ({ filtersObj, objectType, orderingType } ) => {
     }
   };
 
-
   return (
     <>
-      <h2 className="Dashboard__title">{ objectType } Dashboard</h2>
-      <div>
-        <div className="Dashboard__filter">Filters:</div>
-        <FilterList filtersObj={filters} handleFilterChange={handleFilterChange} />
-        <select className="Dashboard__ordering" value={ordering} onChange={handleOrderingChange}>
-          {orderingType.map((orderingChoice) => (
-            <option key={orderingChoice} value={orderingChoice}>
-              {orderingChoice.charAt(0).toUpperCase() + orderingChoice.slice(1)}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <ol className='Dashboard__list'>
-      <ol className="Dashboard__list">
-        {listObjects.map((item) => renderCardComponent(item))}
-      </ol>
-        </ol>
-        <div className="pagination">
-            <button className="pagination__arrow pagination__arrow__right" onClick={handlePreviousPage} disabled={currentPage === 0}>
+      <h2 className="Dashboard__title">{objectType} Dashboard</h2>
+      <div className="Dashboard__container">
+        <div className="Dashboard__content">
+          <ol className="Dashboard__list">
+            {listObjects.map((item) => renderCardComponent(item))}
+          </ol>
+          <div className="pagination">
+            <button className="pagination__arrow pagination__arrow__left" onClick={handlePreviousPage} disabled={currentPage === 0}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <button className="pagination__arrow pagination__arrow__left" onClick={handleNextPage} disabled={currentPage >= totalPages - 1}>
+            <button className="pagination__arrow pagination__arrow__right" onClick={handleNextPage} disabled={currentPage >= totalPages - 1}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-             </svg>
+                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
           </div>
+        </div>
+        <div className="Dashboard__sidebar">
+          <div className="Dashboard__filter">Filters</div>
+          <FilterList filtersObj={filters} handleFilterChange={handleFilterChange} />
+          <span>Order by: </span>
+          <select className="Dashboard__ordering" value={ordering} onChange={handleOrderingChange}>
+            {orderingType.map((orderingChoice) => (
+              <option key={orderingChoice} value={orderingChoice}>
+                {orderingChoice.charAt(0).toUpperCase() + orderingChoice.slice(1)}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
     </>
   );
 };
