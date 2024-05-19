@@ -1,12 +1,12 @@
 from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 
-from apis.campaigns.views import (
-    CampaignsAPIViewSet
+from apis.leads.views import (
+    LeadAPIViewSet
 )
 
 router = SimpleRouter()
-router.register(r'campaigns', CampaignsAPIViewSet, basename='campaigns')
+router.register(r'leads', LeadAPIViewSet, basename='leads')
 
 urlpatterns = [
     path('', include(router.urls)),

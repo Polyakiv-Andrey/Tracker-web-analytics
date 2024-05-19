@@ -12,3 +12,4 @@ class CampaignsAPIViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
     filter_backends = (DjangoFilterBackend,)
     filterset_class = CampaignFilter
+
