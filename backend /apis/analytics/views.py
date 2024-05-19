@@ -39,7 +39,7 @@ class ClickStatisticsView(APIView):
         ]
 
         data = {
-            'clicks_last_week': clicks_last_week_filled,
+            'data': clicks_last_week_filled,
         }
 
         return Response(data)
@@ -74,7 +74,7 @@ class LeadStatisticsView(APIView):
         ]
 
         data = {
-            'leads_last_week': leads_last_week_filled,
+            'data': leads_last_week_filled,
         }
 
         return Response(data)
@@ -122,7 +122,7 @@ class ConversionStatisticsView(APIView):
             )
 
         data = {
-            'conversions_last_week': conversions_last_week_filled,
+            'data': conversions_last_week_filled,
         }
 
         return Response(data)
@@ -157,7 +157,7 @@ class RevenueStatisticsView(APIView):
         ]
 
         data = {
-            'revenue_last_week': revenue_last_week_filled,
+            'data': revenue_last_week_filled,
         }
 
         return Response(data)
@@ -189,7 +189,7 @@ class EPCStatisticsView(APIView):
         )
 
         click_dict = {click['day'].date().isoformat(): click['click_count'] for click in clicks_last_week}
-        revenue_dict = {lead['day'].date().isoformat(): lead['total_revenue'] for lead in leads_last_week}
+        revenue_dict = {lead['day'].date().isoformat(): float(lead['total_revenue'] or 0.0) for lead in leads_last_week}
 
         cumulative_clicks = 0
         cumulative_revenue = 0.0
@@ -211,7 +211,7 @@ class EPCStatisticsView(APIView):
             })
 
         data = {
-            'epc_last_week': epc_last_week_filled,
+            'data': epc_last_week_filled,
         }
 
         return Response(data)
