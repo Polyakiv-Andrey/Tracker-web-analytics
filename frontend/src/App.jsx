@@ -19,10 +19,14 @@ export const App = () => {
         objectType="Leads"
         orderingType={["user", "action", "date", "interest_level"]}
       />
+      <DashboardList
+        filtersObj={{ click_date_gte: '', click_date_lte: '',click_url: '', user_agent: '', ip_address: '', operating_system: '' }}
+        objectType="Clicks"
+        orderingType={["click_time", "click_url", "user_agent", "ip_address", "operating_system"]}
+      />
     </section>
   );
 };
-
 
 
 export default App;

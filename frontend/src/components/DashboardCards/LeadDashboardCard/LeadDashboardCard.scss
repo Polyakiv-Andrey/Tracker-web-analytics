@@ -8,7 +8,7 @@
     margin: 10px;
     box-sizing: border-box;
     flex: 1 1 calc(27% - 20px);
-    max-width: calc(27% - 20px);
+    width: calc(27% - 20px);
 
     &__user {
       font-size: 1.2em;

@@ -1,4 +1,4 @@
-.Campaign {
+.Click {
   &__card {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -10,21 +10,39 @@
     flex: 1 1 calc(27% - 20px);
     width: calc(27% - 20px);
 
-    &__title {
+    &__click_time {
       font-size: 1.2em;
       font-weight: bold;
       margin-bottom: 10px;
     }
 
-    &__date, &__goal {
+    &__click_url {
+      font-size: 1em;
+      margin-bottom: 5px;
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__user_agent {
       font-size: 1em;
       margin-bottom: 5px;
     }
 
-    &__goal {
-      color: #007bff;
-      font-weight: bold;
+    &__ip_address {
+      font-size: 1em;
+      margin-bottom: 5px;
+    }
+
+    &__operating_system {
+      font-size: 1em;
+      margin-bottom: 5px;
     }
   }
 }
-

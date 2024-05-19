@@ -6,6 +6,7 @@ export const formatDate = (dateString) => {
     hour: '2-digit', 
     minute: '2-digit', 
     second: '2-digit', 
+    timeZone: 'UTC'
   };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
