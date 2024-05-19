@@ -64,6 +64,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apis.analytics.middleware.AnalyticsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
