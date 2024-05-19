@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000/api/';
+import { BASE_URL } from '../constants'
 
 export async function getListObjectsFromServer(typeObjects, query, limit = 10, offset = 0) {
   let url = new URL(BASE_URL + typeObjects + '/');

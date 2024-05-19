@@ -1,5 +1,6 @@
 import './App.scss';
-import { DashboardList } from './components/DashbordTemplate/DashbordTemplate'
+import { DashboardList } from './components/DashbordTemplate/DashbordTemplate';
+import { AnalyticsPage } from './components/AnalyticsDashboard/AnalyticsPage';
 
 export const App = () => {
   return (
@@ -24,6 +25,7 @@ export const App = () => {
         objectType="Clicks"
         orderingType={["click_time", "click_url", "user_agent", "ip_address", "operating_system"]}
       />
+      <AnalyticsPage />
     </section>
   );
 };
